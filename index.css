@@ -1,0 +1,6 @@
+html, body, .backdrop{
+    background-color: #000;
+    width: auto;
+    height: 100%;
+    text-align: center;
+}
