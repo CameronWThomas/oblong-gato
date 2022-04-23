@@ -3,8 +3,8 @@
 var gato = SVG(document.getElementById('gato'));
 
 
-
-var userIsIdleMaxTime = 1000 * 10;
+var eyeCloseTime = 1000 * 5;
+var userIsIdleMaxTime = 1000 * 15;
 
 
 
@@ -227,6 +227,7 @@ onmousemove = function(e){
 
 var trackIdle = function () {
     var time;
+    var time2;
     window.onload = resetTimer;
     // DOM Events
     document.onmousemove = resetTimer;
@@ -239,14 +240,20 @@ var trackIdle = function () {
         mlem();
         //location.href = 'logout.html'
     }
+    function rest(){
+        closeEyes();
+    }
 
     function resetTimer() {
         clearTimeout(time);
+        clearTimeout(time2);
+        openEyes();
         time = setTimeout(logout, userIsIdleMaxTime)
+        time2 = setTimeout(rest, eyeCloseTime)
         // 1000 milliseconds = 1 second
     }
 };
 
-
 openEyes();
 trackIdle();
+trackEyeClose();
