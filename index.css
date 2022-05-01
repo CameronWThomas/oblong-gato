@@ -1,0 +1,72 @@
+@font-face {
+    font-family: "Cloister";
+    src: local("Cloister"),
+        url(./fonts/CloisterBlack.ttf) format("truetype");
+  }
+  
+
+
+html, body, .backdrop{
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    overflow-x: none;
+}
+.container{
+    width: 100%;
+}
+.backdrop{
+    overflow: visible;
+    width: 100%;
+}
+
+#gato{
+    height: 100%;
+    width: 100%;
+    overflow-x: none;
+    overflow:visible;
+}
+#music-display{
+    position:absolute;
+    top:5vh;
+    left: 10vw;
+    text-align: left;
+    color: #fff;
+    font-family: "Cloister";
+    font-size: 2.6rem;
+}
+.bottom-bar{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    background-color: #303030;
+    border: 1px solid rgba(255,255,255,0.15);
+    height: 42px;
+}
+
+.bandcamp-embed{
+    position: absolute;
+    width: 700px;
+    right: 0;
+    /*
+    background-color: #303030;
+    border: 1px solid rgba(255,255,255,0.15);
+    */
+}
+
+.player-area{
+    width: 100%;
+}
+.audio-player{
+    width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+    .player-area{
+        height: 15vh;
+    }
+    .audio-player{
+        height: 15vh;
+    }
+  }
