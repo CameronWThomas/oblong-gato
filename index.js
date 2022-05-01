@@ -52,7 +52,7 @@ var maxToungeOut = 20;
 
 var extensionNum = 1;
 
-var extensionMultiplier = 10;
+var extensionMultiplier = 1;
 
 //Lower Body (expandable in other words)
 var toesL = SVG(document.getElementById('toes-l'));
@@ -61,6 +61,8 @@ var legL = SVG(document.getElementById('leg-l'));
 var legLCover = SVG(document.getElementById('leg-l-cover'));
 var legR = SVG(document.getElementById('leg-r'));
 var legRCover = SVG(document.getElementById('leg-r-cover'));
+
+var numberOfViews = -1;
 
 /*
 var gato = SVG(document.getElementById('gato'));
@@ -269,7 +271,7 @@ document.addEventListener("click", () => {
             stickToungeOut();
         }
 
-        expandByFactor(1);
+        //expandByFactor(1);
     }
     
     
@@ -313,11 +315,23 @@ var trackIdle = function () {
     }
 };
 
-
+async function getViews(){
+    return await $.ajax({
+        url: 'https://localhost:7009/AccessLogging',
+        type: 'GET',
+        crossDomain: true,
+        success: function(data){
+            //console.log('number of views');
+            //console.log(data);
+            expandByFactor(data);
+            numberOfViews = data;
+            document.getElementById('gato').style.visibility = "visible";
+        }
+    });
+}
 //set backdrop to window height
 
 window.addEventListener('load', (event) => {
-    
     var backdrop = document.getElementById('backdrop');
     var outer = document.getElementById('outer-container');
 
@@ -326,11 +340,15 @@ window.addEventListener('load', (event) => {
 
     gato.width(window.innerWidth);
     gato.height(window.innerHeight);
-    
+   
 
+    //var submitView;
+
+    getViews();
     openEyes();
     trackIdle();
   });
+
 
 
 //trackEyeClose();

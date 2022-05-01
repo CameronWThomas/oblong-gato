@@ -16,6 +16,15 @@ html, body, .backdrop{
 .container{
     width: 100%;
 }
+html, body, .container, .backdrop, #gato {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+html::-webkit-scrollbar, body::-webkit-scrollbar,
+.container::-webkit-scrollbar, .backdrop::-webkit-scrollbar,
+ #gato::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
 .backdrop{
     overflow: visible;
     width: 100%;
@@ -26,6 +35,7 @@ html, body, .backdrop{
     width: 100%;
     overflow-x: none;
     overflow:visible;
+    visibility: hidden;
 }
 #music-display{
     position:absolute;
@@ -64,9 +74,9 @@ html, body, .backdrop{
 
 @media only screen and (max-width: 600px) {
     .player-area{
-        height: 15vh;
+        height: 8vh;
     }
     .audio-player{
-        height: 15vh;
+        height: 100%;
     }
   }
