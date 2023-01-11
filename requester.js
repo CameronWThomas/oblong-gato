@@ -14,7 +14,8 @@ var Token = null;
 
 async function getToken() {
     try {
-        const res = await getData('https://localhost:7009/AccessLogging', 'POST')
+        const res = await getData('http://localhost:5000/AccessLogging', 'POST')
+        //const res = await getData('https://weatherdotcomsucks.org:5000/AccessLogging', 'POST')
         console.log('res')
         console.log(res)
         Token = res;

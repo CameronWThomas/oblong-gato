@@ -317,7 +317,7 @@ var trackIdle = function () {
 
 async function getViews(){
     return await $.ajax({
-        url: 'https://localhost:7009/AccessLogging',
+        url: 'http://localhost:5000/AccessLogging',
         type: 'GET',
         crossDomain: true,
         success: function(data){
